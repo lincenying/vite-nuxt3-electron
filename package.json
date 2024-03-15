@@ -22,19 +22,16 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "lint:ts": "vue-tsc --noEmit",
-    "lint:css": "stylelint '**/*.{css,scss}' --fix"
+    "lint:css": "stylelint '**/*.{css,scss}' --fix",
+    "bb": "electron-builder"
   },
   "build": {
     "appId": "YourAppID",
-    "asar": true,
+    "asar": false,
     "directories": {
       "buildResources": "assets",
       "output": "release/${version}"
     },
-    "files": [
-      "dist",
-      "src/electron/main/main.js"
-    ],
     "mac": {
       "artifactName": "${productName}_${version}.${ext}",
       "target": [

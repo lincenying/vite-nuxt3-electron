@@ -1,5 +1,5 @@
+/* eslint-disable node/prefer-global/process */
 const { join } = require('node:path')
-const process = require('node:process')
 const { app, BrowserWindow } = require('electron')
 
 const isDev = process.env.npm_lifecycle_event === 'app:dev'

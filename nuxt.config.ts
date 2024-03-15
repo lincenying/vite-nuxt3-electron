@@ -56,6 +56,7 @@ export default defineNuxtConfig({
             },
         },
     },
+    ssr: false,
 
     hooks: {
         'prepare:types': ({ references }) => {

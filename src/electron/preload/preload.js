@@ -1,4 +1,4 @@
-const process = require('node:process')
+/* eslint-disable node/prefer-global/process */
 
 // All of the Node.js APIs are available in the preload process.
 // It has the same sandbox as a Chrome extension.
