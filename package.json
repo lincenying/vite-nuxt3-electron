@@ -4,7 +4,7 @@
   "private": true,
   "description": "A simple starter app built with just Electron, Vue3, Typescript, and Vite",
   "author": "LinCenYing <lincenying@gmail.com>",
-  "main": "src/electron/main/main.js",
+  "main": "dist-electron/main.js",
   "scripts": {
     "postinstall": "nuxi prepare",
     "prepare": "npx simple-git-hooks",
@@ -23,15 +23,19 @@
     "lint:fix": "eslint . --fix",
     "lint:ts": "vue-tsc --noEmit",
     "lint:css": "stylelint '**/*.{css,scss}' --fix",
-    "bb": "electron-builder"
+    "pack": "electron-builder"
   },
   "build": {
-    "appId": "YourAppID",
+    "appId": "your.app.id",
     "asar": false,
     "directories": {
       "buildResources": "assets",
       "output": "release/${version}"
     },
+    "files": [
+      ".output/**/*",
+      "dist-electron"
+    ],
     "mac": {
       "artifactName": "${productName}_${version}.${ext}",
       "target": [
@@ -57,16 +61,11 @@
     }
   },
   "dependencies": {
-    "@iconify-json/carbon": "^1.1.31",
-    "@iconify-json/twemoji": "^1.1.15",
-    "md5": "^2.3.0",
-    "nuxt": "3.10.3",
-    "pinia": "^2.1.7",
-    "vue": "^3.4.21",
-    "vue-inline-svg": "^3.1.2"
   },
   "devDependencies": {
     "@element-plus/nuxt": "^1.0.7",
+    "@iconify-json/carbon": "^1.1.31",
+    "@iconify-json/twemoji": "^1.1.15",
     "@lincy/base-config": "^1.1.0",
     "@lincy/eslint-config": "^4.2.6",
     "@lincy/stylelint-config": "^1.17.4",
@@ -87,10 +86,18 @@
     "eslint-plugin-format": "^0.1.0",
     "eslint-ts-patch": "8.57.0-0",
     "lint-staged": "^15.2.2",
+    "md5": "^2.3.0",
+    "nuxt": "3.10.3",
+    "nuxt-electron": "^0.7.0",
+    "pinia": "^2.1.7",
     "sass": "^1.72.0",
     "simple-git-hooks": "^2.10.0",
     "typescript": "^5.4.2",
     "vite": "^5.1.6",
+    "vite-plugin-electron": "^0.28.3",
+    "vite-plugin-electron-renderer": "^0.14.5",
+    "vue": "^3.4.21",
+    "vue-inline-svg": "^3.1.2",
     "vue-tsc": "^2.0.6"
   },
   "simple-git-hooks": {

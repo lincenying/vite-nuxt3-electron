@@ -1,4 +1,9 @@
+import fs from 'node:fs'
+import path from 'node:path'
+
 import { appDescription } from './src/constants/index'
+
+fs.rmSync(path.join(__dirname, 'dist-electron'), { recursive: true, force: true })
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -10,6 +15,7 @@ export default defineNuxtConfig({
         '@pinia/nuxt',
         '@vue-macros/nuxt',
         '@vueuse/nuxt',
+        'nuxt-electron',
     ],
 
     experimental: {
@@ -40,6 +46,12 @@ export default defineNuxtConfig({
         },
     },
 
+    runtimeConfig: {
+        app: {
+
+        },
+    },
+
     css: [
         '@unocss/reset/tailwind-compat.css',
     ],
@@ -55,12 +67,34 @@ export default defineNuxtConfig({
                 proxy: 'https://php.mmxiaowu.com/api/fetch/**',
             },
         },
+        runtimeConfig: {
+            app: {
+            },
+        },
     },
-    ssr: false,
+    ssr: true,
 
     hooks: {
         'prepare:types': ({ references }) => {
             references.push({ types: '@lincy/utils' })
         },
+    },
+
+    electron: {
+        build: [
+            {
+                entry: 'src/electron/main.ts',
+            },
+            {
+                entry: 'src/electron/preload.ts',
+                onstart(options: any) {
+                    // Notify the renderer process to reload the page when the preload-script is completely loaded
+                    // Instead of restarting the entire electron app
+                    options.reload()
+                },
+            },
+        ],
+        renderer: {},
+        disableDefaultOptions: true,
     },
 })

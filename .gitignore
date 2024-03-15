@@ -15,12 +15,12 @@ release
 node_modules
 dist
 dist-ssr
+dist-electron
 *.local
 
 # Editor directories and files
-.vscode/*
 !.vscode/extensions.json
-!.vscode/launch.json 
+!.vscode/launch.json
 .idea
 .DS_Store
 *.suo

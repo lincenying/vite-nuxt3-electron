@@ -1,13 +1,11 @@
 # Vite+Vue3+Electron+Typescript template
 
-![screenshot](./src/assets/images/screenshot.png)
-
 ## Get Started
 
 ### 1. clone this repository
 
 ```bash
-git clone https://github.com/meadowsjared/nuxt3-electron-ts-template.git
+git clone https://github.com/lincenying/nuxt3-electron-ts-template.git
 ```
 
 ### 2. install packages
@@ -17,6 +15,7 @@ pnpm i
 ```
 
 ### 3. Generate the nuxt configuration
+
 ```bash
 pnpm nuxt:generate
 ```
@@ -26,13 +25,13 @@ pnpm nuxt:generate
 ### dev mode
 
 ```bash
-pnpm dev  
+pnpm dev
 ```
 
 ### preview mode
 
 ```bash
-pnpm preview  
+pnpm preview
 ```
 
 ### build app
