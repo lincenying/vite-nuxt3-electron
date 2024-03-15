@@ -60,18 +60,24 @@
     }
   },
   "dependencies": {
+    "@iconify-json/carbon": "^1.1.31",
+    "@iconify-json/twemoji": "^1.1.15",
+    "md5": "^2.3.0",
     "nuxt": "3.10.3",
     "pinia": "^2.1.7",
     "vue": "^3.4.21",
     "vue-inline-svg": "^3.1.2"
   },
   "devDependencies": {
+    "@element-plus/nuxt": "^1.0.7",
     "@lincy/base-config": "^1.1.0",
     "@lincy/eslint-config": "^4.2.6",
     "@lincy/stylelint-config": "^1.17.4",
     "@lincy/utils": "^0.5.5",
+    "@nuxtjs/color-mode": "^3.3.2",
     "@nuxtjs/tailwindcss": "^6.11.4",
     "@pinia/nuxt": "^0.5.1",
+    "@types/md5": "^2.3.5",
     "@typescript-eslint/parser": "^7.2.0",
     "@unocss/eslint-config": "^0.58.6",
     "@unocss/nuxt": "^0.58.6",

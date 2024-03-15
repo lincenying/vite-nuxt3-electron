@@ -1,22 +1,10 @@
 {
+  "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "target": "esnext",
-    "useDefineForClassFields": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "strict": true,
-    "jsx": "preserve",
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "isolatedModules": false,
-    "esModuleInterop": true,
     "lib": ["esnext", "dom", "es2018"],
-    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "types": ["vite/client", "node"],
     "outDir": "dist/electron",
-    "paths": {
-      "@/*": ["./*"]
-    },
-    "types": ["vite/client", "node"]
-  },
-  "extends": "./.nuxt/tsconfig.json"
+    "sourceMap": true
+  }
 }
