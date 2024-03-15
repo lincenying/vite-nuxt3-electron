@@ -1,0 +1,100 @@
+{
+  "name": "nuxt3-electron-ts-template",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A simple starter app built with just Electron, Vue3, Typescript, and Vite",
+  "author": "LinCenYing <lincenying@gmail.com>",
+  "main": "src/electron/main/main.js",
+  "scripts": {
+    "postinstall": "nuxi prepare",
+    "prepare": "npx simple-git-hooks",
+    "dev": "pnpm app:dev",
+    "build": "pnpm app:build",
+    "preview": "pnpm app:preview",
+    "nuxt:postinstall": "nuxt prepare",
+    "nuxt:dev": "nuxt dev",
+    "nuxt:build": "vue-tsc --noEmit && nuxt build",
+    "nuxt:generate": "nuxt generate",
+    "nuxt:preview": "nuxt preview",
+    "app:dev": "tsc && concurrently \"nuxt dev\" \" electron .\" \"tsc -w\"",
+    "app:build": "pnpm nuxt:build && tsc && electron-builder",
+    "app:preview": "pnpm nuxt:build && tsc && electron .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "lint:ts": "vue-tsc --noEmit",
+    "lint:css": "stylelint '**/*.{css,scss}' --fix"
+  },
+  "build": {
+    "appId": "YourAppID",
+    "asar": true,
+    "directories": {
+      "buildResources": "assets",
+      "output": "release/${version}"
+    },
+    "files": [
+      "dist",
+      "src/electron/main/main.js"
+    ],
+    "mac": {
+      "artifactName": "${productName}_${version}.${ext}",
+      "target": [
+        "dmg"
+      ]
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "${productName}_${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "deleteAppDataOnUninstall": false
+    }
+  },
+  "dependencies": {
+    "nuxt": "3.10.3",
+    "pinia": "^2.1.7",
+    "vue": "^3.4.21",
+    "vue-inline-svg": "^3.1.2"
+  },
+  "devDependencies": {
+    "@lincy/base-config": "^1.1.0",
+    "@lincy/eslint-config": "^4.2.6",
+    "@lincy/stylelint-config": "^1.17.4",
+    "@lincy/utils": "^0.5.5",
+    "@nuxtjs/tailwindcss": "^6.11.4",
+    "@pinia/nuxt": "^0.5.1",
+    "@typescript-eslint/parser": "^7.2.0",
+    "@unocss/eslint-config": "^0.58.6",
+    "@unocss/nuxt": "^0.58.6",
+    "@vue-macros/nuxt": "^1.9.21",
+    "@vueuse/nuxt": "^10.9.0",
+    "concurrently": "^8.2.2",
+    "electron": "^29.1.4",
+    "electron-builder": "^24.13.3",
+    "eslint": "npm:eslint-ts-patch@8.57.0-0",
+    "eslint-plugin-format": "^0.1.0",
+    "eslint-ts-patch": "8.57.0-0",
+    "lint-staged": "^15.2.2",
+    "sass": "^1.72.0",
+    "simple-git-hooks": "^2.10.0",
+    "typescript": "^5.4.2",
+    "vite": "^5.1.6",
+    "vue-tsc": "^2.0.6"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*.{[jt]s?(x),vue,md}": "eslint --fix",
+    "*.{css,scss}": "stylelint --fix --allow-empty-input"
+  }
+}
