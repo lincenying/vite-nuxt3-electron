@@ -25,7 +25,7 @@ pnpm nuxt:generate
 ### dev mode
 
 ```bash
-pnpm dev
+pnpm serve
 ```
 
 ### preview mode

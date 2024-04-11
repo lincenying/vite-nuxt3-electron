@@ -7,6 +7,8 @@ import { BrowserWindow, app } from 'electron'
 const isDev = process.env.npm_lifecycle_event === 'app:dev'
 process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
 
+console.log(isDev)
+
 const preload = path.join(__dirname, 'preload.js')
 
 let childprocess: any
