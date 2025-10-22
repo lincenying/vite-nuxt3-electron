@@ -1,4 +1,3 @@
 export default defineAppConfig({
-    baseUrl: '',
-    foo: 'bar',
+    menuActive: 'home',
 })

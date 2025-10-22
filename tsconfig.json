@@ -1,10 +1,16 @@
 {
-  "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
     "lib": ["esnext", "dom", "es2018"],
     "moduleResolution": "node",
     "types": ["vite/client", "node"],
     "outDir": "dist/electron",
     "sourceMap": true
-  }
+  },
+  "references": [
+    { "path": "./.nuxt/tsconfig.app.json" },
+    { "path": "./.nuxt/tsconfig.server.json" },
+    { "path": "./.nuxt/tsconfig.shared.json" },
+    { "path": "./.nuxt/tsconfig.node.json" }
+  ],
+  "files": []
 }

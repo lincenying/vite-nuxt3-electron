@@ -1,7 +1,7 @@
-/* eslint-disable node/prefer-global/process */
-import path from 'node:path'
 import { fork } from 'node:child_process'
-import { BrowserWindow, app } from 'electron'
+import path from 'node:path'
+import process from 'node:process'
+import { app, BrowserWindow } from 'electron'
 
 // const isApp = process.env.NODE_ENV !== 'development'
 const isDev = process.env.npm_lifecycle_event === 'app:dev'
@@ -16,7 +16,7 @@ let childprocess: any
 function createWindow() {
     // Create the browser window.
     const mainWindow = new BrowserWindow({
-        width: 1200,
+        width: 1480,
         height: 950,
         webPreferences: {
             preload,
@@ -30,7 +30,7 @@ function createWindow() {
             console.log(err)
         })
     }
-    mainWindow.loadURL('http://localhost:3000')
+    mainWindow.loadURL('http://localhost:7123')
     if (isDev) {
         // Open the DevTools.
         mainWindow.webContents.openDevTools()
